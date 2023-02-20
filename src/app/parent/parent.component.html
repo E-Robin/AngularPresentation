@@ -1,10 +1,16 @@
 <div class="container">
     <div class="content">
         <h1>Parent Component </h1>
+
+        <p>The value is  - {{Counter}}</p>
+        <button (click)=childmsg()>child msg</button>
+        <button (click)="children.childTEmplateRefrenceMsg()" > child-Reference </button>
     </div>
     
 
-    <app-child [technology]="technology"   [tech]="technology" ></app-child>
+    <app-child  #children
+    [technology]="technology"   tech="{{technology}}" 
+    [count]="Counter" (countChanged)="countChangedHandler($event)"></app-child>
 
 </div>
 

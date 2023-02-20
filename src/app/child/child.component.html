@@ -1,15 +1,80 @@
 <div class="container">
     <h2>Child component</h2>
     <p>{{name}}</p>
+    <!-- <p>{{num}}</p> -->
     <h3>parent to child communication</h3>
     <p>The technoloy we are using is coming form parent with @input decorator - ---  <span style="font-weight: bold;" >{{technology}}</span>  </p>
 </div>
 
 <div class="container">
-    <h2>Child component</h2>
-    <p>{{name}}</p>
-    <h3>parent to child communication</h3>
-    <p>The technoloy we are using is coming form parent with @input decorator - ---  <span style="font-weight: bold;" >{{technology}}</span>  </p>
+    <h2>Child component2</h2>
+    <h3> child to parent  communication</h3>
+    <button (click)="increment()">Increment</button>
+    <button (click)="decrement()">decrement</button>
+
+
+    <!-- curent count is {{count}}
+    <p>The current count is <span>{{count}}</span></p> -->
+   
+</div>
+
+
+<div class="container">
+<!-- ng-container is not a directive, component, class, or interface, but just a syntax element -->
+
+<h2>Defining a Template using ng-Template</h2>
+ 
+<ng-template>
+  <p> Say Hello</p>
+</ng-template>
+
+<ng-template #sayHelloTemplate>
+    <p> Say Hello it is in ng template</p>
+  </ng-template>
+
+<ng-container *ngTemplateOutlet="sayHelloTemplate">
+    <!-- This text is not displayed -->
+</ng-container>   
+
+</div>
+
+
+<div class="container">
+    <h2> Ng-Template ngIf, then & else example.</h2>
+    <div *ngIf="Islogin; then thenBlock1 else elseBlock1">
+        <p>This content is not shown</p>
+      </div>
+       
+      <ng-template #thenBlock1>
+        <p>content to render when the selected is true.</p>
+        <p>Welome The user is Login</p>
+      </ng-template>
+       
+      <ng-template #elseBlock1>
+        <p>content to render when selected is false.</p>
+        <p>Sorry the user is not Login</p>
+      </ng-template>
+       
+</div>
+
+<div class="container">
+    <h1>Ng-container </h1>
+    <!-- Replace the div with ng-container as shown below -->
+    <!-- <div *ngIf="items">          
+        <div *ngFor="let item of items;">
+          {{item.name}}
+        </div>
+       </div> -->
+
+    
+       <ng-container *ngIf="items">
+        <div *ngFor="let item of items;">
+            <li>{{item.name}}</li>
+          
+        </div>
+       </ng-container>
+
+
 </div>
 
 
